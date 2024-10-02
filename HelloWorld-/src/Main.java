@@ -3,44 +3,69 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        int age = 31;
-        int ageWork = 13;
-        int a = 15;
-        int b = 30;
-        int f = 2;
-        int c = a + b;
-        int d = c * a;
-        f += 10;
-        byte x = 2;
-        byte w = (byte)(x+50);
-        double z = f + a;
-        boolean aEqualsb = a==b;
-        Scanner scanner = new Scanner(System.in);
-        String myName = scanner.nextLine();
+        //Задание 1
 
-        String mySurname = "Vasilevna";
-        System.out.println("Hello!");
-        System.out.println("My name is Lareva Natallia.");
-        System.out.println("I'm Software QA. Nice to meet you!");
-        System.out.println("просто int");
-        System.out.println(age);
-        System.out.println(ageWork);
-        System.out.println(mySurname);
-        System.out.println("Арифметические");
-        System.out.println(a+b);
-        System.out.println(d);
-        System.out.println(a/b);
-        System.out.println("Сравнения");
-        System.out.println(aEqualsb);
-        System.out.println(a != b);
-        System.out.println(a<b && b>c);
-        System.out.println("Логические");
-        System.out.println(a <b || b > c);
-        System.out.println("Присваивания");
-        System.out.println(f);
-        System.out.println("Приведение типов");
-        System.out.println(z);// неявное
-        System.out.println(w);// явное
-        System.out.println(myName);
+        System.out.print("Пожалуйста, введите свое число: ");
+        int userScore = new Scanner(System.in).nextInt();
+
+        if (userScore >= 101) {
+            System.out.println("Введено некоректное значение. Повторите ввод.");
+        } else if (userScore <= -1) {
+            System.out.println("Введено некоректное значение. Повторите ввод.");
+        } else if (userScore >= 100) {
+            System.out.println("Операция прошла успешно!");
+        } else {
+            System.out.println("Операция прошла успешно");
+        }
+
+        System.out.println("End of Program");
+
+        //Задание 2
+
+        String userInput = "";
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Пожалуйста, введите команду: ");
+            userInput = scanner.nextLine();
+            if (userInput.equalsIgnoreCase("Exit"))
+                break;
+        }
+        System.out.println("Программа завершена");
+
+        //Задание 3
+
+        System.out.println("Введите целое число:");
+int x = scanner.nextInt();
+int sum = 0;
+if (x < 0) {
+    for (int i = 0; i>= x; i--) {
+        sum += i;
+    }
+}
+else if (x > 0) {
+    for (int i = 0; i <=x; i++) {
+        sum += i;
+    }
+}
+else
+    System.out.println("Введите корректный номер");
+    System.out.printf(" Сумма чисел от 0 до %d равна %d ", x, sum);
+
+
+    //Задание 4
+        String[] channels = {"MTV", "RTR", "ONT","NTV"};
+        System.out.println("Меню выбора\nВведите номер канала: \n 0 - Exit," +
+                "1 - MTV, 2 - RTR, 3 - ONT, 4 - NTV ");
+        int numberOfChannels = scanner.nextInt();
+        String channel = switch (numberOfChannels) {
+            case 1 -> " Вы выключили программу ";
+            case 2 -> " Вы перешли на " + channels[0];
+            case 3 ->  " Вы перешли на " + channels[1];
+            case 4 ->  " Вы перешли на " + channels[2];
+            case 5 ->  " Вы перешли на " + channels[3];
+            default -> " Неверный канал. Введите заново от 0 до 4";
+        };
+        System.out.println(channel);
     }
 }
